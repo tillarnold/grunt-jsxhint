@@ -11,7 +11,7 @@ jshintcli.__set__("lint", function myLint(code, results, config, data, file) {
   origLint(react.transform(code), results, config, data, file);
 });
  
-var libJsHint = proxyquire('grunt-contrib-jshint/lib/jshint',{
+var libJsHint = proxyquire('grunt-contrib-jshint/tasks/lib/jshint',{
   'jshint/src/cli': jshintcli
 });
  
