@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "homepage": "https://github.com/tillarnold/grunt-jsxhint",
   "author": "Till Arnold",
+  "license" : "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/tillarnold/grunt-jsxhint.git"
