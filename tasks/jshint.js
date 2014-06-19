@@ -15,7 +15,7 @@ var libJsHint = proxyquire('grunt-contrib-jshint/tasks/lib/jshint',{
   'jshint/src/cli': jshintcli
 });
  
-var gruntContribJshint = proxyquire('grunt-contrib-jshint',{
+var gruntContribJshint = proxyquire('grunt-contrib-jshint/tasks/jshint',{
   './lib/jshint': libJsHint
 });
  
