@@ -1,0 +1,29 @@
+{
+  "name": "grunt-jsxhint",
+  "description": "jshint for jsx",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tillarnold/grunt-jsxhint",
+  "author": "Till Arnold",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tillarnold/grunt-jsxhint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tillarnold/grunt-jsxhint/issues"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "dependencies": {
+    "proxyquire": "~1.0.1",
+    "rewire": "~2.0.1",
+    "react-tools": "~0.10.0",
+    "grunt-contrib-jshint": "~0.10.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
