@@ -1,6 +1,8 @@
 grunt-jsxhint
 =============
 
+[![Dependency Status](https://david-dm.org/tillarnold/grunt-jsxhint.svg)](https://david-dm.org/tillarnold/grunt-jsxhint)
+
 > Like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint) but compatible with [react's](https://github.com/facebook/react) jsx
 
 Use exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
