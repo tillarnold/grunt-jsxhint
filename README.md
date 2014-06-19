@@ -6,7 +6,7 @@ grunt-jsxhint
 > Like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint) but compatible with [react's](https://github.com/facebook/react) jsx
 
 
-This grunt plugin works exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint). In fact it's even using grunt-contrib-jshint. The only difference to grunt-contrib-jshint is that this plugin runs `require('react-tools').transform` on every file passed in. This will transform the jsx syntax to regular JavaScript. Non jsx-files will be unchanged. Line numbers are preserved by jsx so the line number outputted by jshint will be correct.
+This grunt plugin works exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint). In fact it's even using grunt-contrib-jshint. The only difference to grunt-contrib-jshint is that this plugin runs `require('react-tools').transform` on every file passed in. This will transform the jsx syntax to regular JavaScript. Non jsx-files will be unchanged. Line numbers are preserved by jsx so the line numbers outputted by jshint will be correct.
 
 Use exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
 
