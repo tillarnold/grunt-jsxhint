@@ -29,5 +29,6 @@ Your jsx files need to start with:
 If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the README) feel free to submit a pull request or file an issue.
 
 
-## Release History
+## Release Historiy
+* 2014-06-20     v0.0.2     Added MIT licence. Updated README.
 * 2014-06-19   v0.0.1   Initial version
