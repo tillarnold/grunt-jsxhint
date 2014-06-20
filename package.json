@@ -1,7 +1,7 @@
 {
   "name": "grunt-jsxhint",
   "description": "jshint for jsx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/tillarnold/grunt-jsxhint",
   "author": "Till Arnold",
   "license" : "MIT",
