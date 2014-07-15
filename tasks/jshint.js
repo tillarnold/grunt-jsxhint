@@ -1,15 +1,23 @@
 var rewire = require('rewire');
 var proxyquire = require('proxyquire');
 var react = require('react-tools')
- 
+
 var jshintcli = rewire('jshint/src/cli');
 
 //Get the original lint function 
 var origLint = jshintcli.__get__("lint");
- 
+
+var jsxSuffix = ".jsx";
+
 //override the lint function to also transform the jsx code
 jshintcli.__set__("lint", function myLint(code, results, config, data, file) {
-  origLint(react.transform(code), results, config, data, file);
+  var isJsxFile = file.indexOf(jsxSuffix, file.length - jsxSuffix.length) !== -1
+  if (isJsxFile) {
+    origLint(react.transform(code), results, config, data, file);
+  }
+  else {
+    origLint(code, results, config, data, file);
+  }
 });
 
 //override the jshint cli in the grunt-contrib-jshint lib folder 
@@ -25,3 +33,4 @@ var gruntContribJshint = proxyquire('grunt-contrib-jshint/tasks/jshint',{
 
 //return the modified grunt-contrib-jshint version
 module.exports = gruntContribJshint;
+
