@@ -19,14 +19,18 @@ jshint: {
 }
 ```
 
-Your jsx files need to have a `.jsx` file extension.
+Your jsx files need to have a `.jsx` file extension or start with
+```js
+/** @jsx React.DOM */
+```
 
  
 If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the README) feel free to submit a pull request or file an issue.
 
 
 ## Release Historiy
+* 2014-08-04   v0.2.0   Upgrade react-tools to 0.11.1. Add check for /** @jsx React.DOM */ comment in .jsx file.
 * 2014-07-15   v0.1.0   Stop transforming non jsx files.
-* 2014-07-12   v0.0.3   Use absolute version of grunt-contrib-jshint
+* 2014-07-12   v0.0.3   Use absolute version of grunt-contrib-jshint.
 * 2014-06-20   v0.0.2   Added MIT licence. Updated README.
-* 2014-06-19   v0.0.1   Initial version
+* 2014-06-19   v0.0.1   Initial version.
