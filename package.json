@@ -18,7 +18,7 @@
   "dependencies": {
     "proxyquire": "~1.0.1",
     "rewire": "~2.0.1",
-    "react-tools": "~0.10.0",
+    "react-tools": "~0.11.1",
     "grunt-contrib-jshint": "0.10.0",
     "jshint":"~2.5.1",
     "jstransform": "~6.0.1"
