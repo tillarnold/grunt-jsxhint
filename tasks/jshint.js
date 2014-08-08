@@ -19,7 +19,15 @@ jshintcli.__set__("lint", function myLint(code, results, config, data, file) {
         code = '/** @jsx React.DOM */' + code;
     }
     if (isJsxFile || hasDocblock) {
-        origLint(react.transform(code), results, config, data, file);
+        var compiled;
+
+        try {
+            compiled = react.transform(code);
+        } catch (err) {
+            throw new Error('grunt-jsxhint: Error while running JSXTransformer on ' + file + '\n' + err.message);
+        }
+
+        origLint(compiled, results, config, data, file);
     }
   else {
     origLint(code, results, config, data, file);
