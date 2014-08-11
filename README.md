@@ -24,6 +24,13 @@ This grunt plugin works exactly like [grunt-contrib-jshint](https://github.com/g
 
 This is a drop in replacement for `grunt-contrib-jshint`. So you can just replace the `grunt-contrib-jshint` dependency in your `package.json` with `grunt-jsxhint`.
 
+`grunt-jsxhint` needs `react-tools` to work. If you don't have `react-tools` installed run
+
+```shell
+npm install react-tools --save-dev
+```
+
+
 Use exactly like `grunt-contrib-jshint`:
 
 
