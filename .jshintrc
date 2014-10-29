@@ -1,0 +1,16 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "freeze": true,
+  "indent": 2,
+  "latedef": true,
+  "newcap": true,
+  "noempty": true,
+  "undef": true,
+  "unused": true,
+  "browser": true,
+  "node": true,
+  "forin": true,
+  "noarg": true,
+  "esnext": true
+}
