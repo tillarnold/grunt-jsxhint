@@ -14,16 +14,20 @@ var docblock = require('jstransform/src/docblock');
 var origLint = jshintcli.__get__("lint");
 
 var jsxSuffix = ".jsx";
+var reactJsSuffix = '.react.js';
 
 //override the lint function to also transform the jsx code
 jshintcli.__set__("lint", function myLint(code, results, config, data, file) {
   var isJsxFile = file.indexOf(jsxSuffix, file.length - jsxSuffix.length) !== -1;
+  var isReactJsFile = file.indexOf(reactJsSuffix, file.length - reactJsSuffix.length) !== -1;
+  var hasSuffix = isJsxFile || isReactJsFile;
+
   //added check for having /** @jsx React.DOM */ comment
   var hasDocblock = docblock.parseAsObject(docblock.extract(code)).jsx;
-  if (isJsxFile && !hasDocblock) {
+  if (hasSuffix && !hasDocblock) {
     code = '/** @jsx React.DOM */' + code;
   }
-  if (isJsxFile || hasDocblock) {
+  if (hasSuffix || hasDocblock) {
     var compiled;
 
     try {
