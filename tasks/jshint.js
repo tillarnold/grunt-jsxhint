@@ -1,5 +1,6 @@
 var rewire = require('rewire');
 var proxyquire = require('proxyquire');
+
 try {
   var react = require('react-tools');
 } catch (e) {
