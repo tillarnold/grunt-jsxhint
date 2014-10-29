@@ -50,6 +50,7 @@ If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the RE
 
 
 ## Release History
+* 2014-10-29   v0.4.0   Add support for `.react.js` suffix
 * 2014-08-14   v0.3.0   Improve error messages. Use locally installed react-tool. 
 * 2014-08-04   v0.2.0   Add check for /** @jsx React.DOM */. Upgrade react-tools.
 * 2014-07-15   v0.1.0   Stop transforming non jsx files.
