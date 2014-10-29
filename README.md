@@ -40,7 +40,7 @@ jshint: {
 }
 ```
 
-Your jsx files need to have a `.jsx` file extension or start with
+Your jsx files need to have a `.jsx` or `.react.js` file extension or start with
 ```js
 /** @jsx React.DOM */
 ```
