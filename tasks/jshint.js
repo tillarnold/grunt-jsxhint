@@ -1,10 +1,9 @@
 var rewire = require('rewire');
 var proxyquire = require('proxyquire');
 try {
-    var react = require('react-tools');
-}
-catch(e) {
-    throw new Error('grunt-jsxhint: The module `react-tools` was not found. ' +
+  var react = require('react-tools');
+} catch (e) {
+  throw new Error('grunt-jsxhint: The module `react-tools` was not found. ' +
     'To fix this error run `npm install react-tools --save-dev`.', e);
 }
 
@@ -18,39 +17,37 @@ var jsxSuffix = ".jsx";
 
 //override the lint function to also transform the jsx code
 jshintcli.__set__("lint", function myLint(code, results, config, data, file) {
-    var isJsxFile = file.indexOf(jsxSuffix, file.length - jsxSuffix.length) !== -1;
-//added check for having /** @jsx React.DOM */ comment
-    var hasDocblock = docblock.parseAsObject(docblock.extract(code)).jsx;
-    if (isJsxFile && !hasDocblock) {
-        code = '/** @jsx React.DOM */' + code;
-    }
-    if (isJsxFile || hasDocblock) {
-        var compiled;
+  var isJsxFile = file.indexOf(jsxSuffix, file.length - jsxSuffix.length) !== -1;
+  //added check for having /** @jsx React.DOM */ comment
+  var hasDocblock = docblock.parseAsObject(docblock.extract(code)).jsx;
+  if (isJsxFile && !hasDocblock) {
+    code = '/** @jsx React.DOM */' + code;
+  }
+  if (isJsxFile || hasDocblock) {
+    var compiled;
 
-        try {
-            compiled = react.transform(code);
-        } catch (err) {
-            throw new Error('grunt-jsxhint: Error while running JSXTransformer on ' + file + '\n' + err.message);
-        }
-
-        origLint(compiled, results, config, data, file);
+    try {
+      compiled = react.transform(code);
+    } catch (err) {
+      throw new Error('grunt-jsxhint: Error while running JSXTransformer on ' + file + '\n' + err.message);
     }
-  else {
+
+    origLint(compiled, results, config, data, file);
+  } else {
     origLint(code, results, config, data, file);
   }
 });
 
 //override the jshint cli in the grunt-contrib-jshint lib folder 
-var libJsHint = proxyquire('grunt-contrib-jshint/tasks/lib/jshint',{
+var libJsHint = proxyquire('grunt-contrib-jshint/tasks/lib/jshint', {
   'jshint/src/cli': jshintcli
 });
 
 
 //insert the modified version of the jshint lib to the grunt-contrib-jshint taks
-var gruntContribJshint = proxyquire('grunt-contrib-jshint/tasks/jshint',{
+var gruntContribJshint = proxyquire('grunt-contrib-jshint/tasks/jshint', {
   './lib/jshint': libJsHint
 });
 
 //return the modified grunt-contrib-jshint version
 module.exports = gruntContribJshint;
-
