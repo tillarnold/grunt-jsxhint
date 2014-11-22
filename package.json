@@ -19,11 +19,11 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "proxyquire": "~1.0.1",
+    "proxyquire": "~1.1.0",
     "rewire": "~2.1.0",
     "grunt-contrib-jshint": "0.10.0",
     "jshint": "~2.5.1",
-    "jstransform": "~8.0.0"
+    "jstransform": "~8.2.0"
   },
   "devDependencies": {
     "react-tools": "~0.12.0"
