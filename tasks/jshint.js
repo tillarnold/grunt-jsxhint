@@ -19,7 +19,7 @@ function endsWith(string, suffix) {
 }
 
 function endsWithOneOf(string, suffixes) {
-  for(var i = 0; i < suffixes.lenght; i++) {
+  for(var i = 0; i < suffixes.length; i++) {
     if(endsWith(string,suffixes[i])) {
       return true;
     }
