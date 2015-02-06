@@ -40,14 +40,10 @@ jshint: {
 }
 ```
 
-Your jsx files need to have a `.jsx` or `.react.js` file extension or start with
-```js
-/** @jsx React.DOM */
-```
-
+Your jsx files need to have a `.jsx` or `.react.js` file extension.
  
 If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the README) feel free to submit a pull request or file an issue.
-
+
 
 ## Release History
 * 2014-10-29   v0.4.0   Add support for `.react.js` suffix

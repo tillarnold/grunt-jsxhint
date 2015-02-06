@@ -9,7 +9,6 @@ try {
 }
 
 var jshintcli = rewire('jshint/src/cli');
-var docblock = require('jstransform/src/docblock');
 
 //Get the original lint function 
 var origLint = jshintcli.__get__('lint');
@@ -35,12 +34,7 @@ var defaultSuffixes = ['.jsx','.react.js'];
 jshintcli.__set__('lint', function myLint(code, results, config, data, file) {
   var hasSuffix = endsWithOneOf(file,defaultSuffixes);
 
-  //added check for having /** @jsx React.DOM */ comment
-  var hasDocblock = docblock.parseAsObject(docblock.extract(code)).jsx;
-  if (hasSuffix && !hasDocblock) {
-    code = '/** @jsx React.DOM */' + code;
-  }
-  if (hasSuffix || hasDocblock) {
+  if (hasSuffix) {
     var compiled;
 
     try {
