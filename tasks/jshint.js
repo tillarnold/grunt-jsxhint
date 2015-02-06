@@ -5,12 +5,12 @@ try {
   var react = require('react-tools');
 } catch (e) {
   throw new Error('grunt-jsxhint: The module `react-tools` was not found. ' +
-    'To fix this error run `npm install react-tools --save-dev`.', e);
+      'To fix this error run `npm install react-tools --save-dev`.', e);
 }
 
 var jshintcli = rewire('jshint/src/cli');
 
-//Get the original lint function 
+//Get the original lint function
 var origLint = jshintcli.__get__('lint');
 
 
@@ -49,7 +49,7 @@ jshintcli.__set__('lint', function myLint(code, results, config, data, file) {
   }
 });
 
-//override the jshint cli in the grunt-contrib-jshint lib folder 
+//override the jshint cli in the grunt-contrib-jshint lib folder
 var libJsHint = proxyquire('grunt-contrib-jshint/tasks/lib/jshint', {
   'jshint/src/cli': jshintcli
 });
