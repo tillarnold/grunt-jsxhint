@@ -28,7 +28,9 @@ function endsWithOneOf(string, suffixes) {
   return false;
 }
 
-var defaultSuffixes = ['.jsx','.react.js'];
+var additionalSuffixes = config && config.additionalSuffixes || [];
+
+var defaultSuffixes = ['.jsx','.react.js'].concat(additionalSuffixes);
 
 //override the lint function to also transform the jsx code
 jshintcli.__set__('lint', function myLint(code, results, config, data, file) {
