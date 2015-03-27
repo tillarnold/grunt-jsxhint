@@ -44,7 +44,13 @@ jshint: {
 By default, your jsx files need to have a `.jsx` or `.react.js` file extension. In order to parse other files, add the following into your jshint options object:
 
 ```js
-additionalSuffixes: ['.js']
+jshint: {
+    options: {
+        jshintrc: '.jshintrc',
+        ignores: [],
+        additionalSuffixes: ['.js']
+    },
+}
 ```
 
 These suffixes are concatenated onto .jsx and .react.js.
