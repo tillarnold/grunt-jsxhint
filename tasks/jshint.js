@@ -5,7 +5,7 @@ try {
   var react = require('react-tools');
 } catch (e) {
   throw new Error('grunt-jsxhint: The module `react-tools` was not found. ' +
-  'To fix this error run `npm install react-tools --save-dev`.', e);
+    'To fix this error run `npm install react-tools --save-dev`.', e);
 }
 
 var jshintcli = rewire('jshint/src/cli');
