@@ -10,7 +10,7 @@ try {
 
 var jshintcli = rewire('jshint/src/cli');
 
-//Get the original lint function 
+//Get the original lint function
 var origLint = jshintcli.__get__('lint');
 
 
@@ -47,6 +47,9 @@ module.exports = function (grunt) {
 
   //override the lint function to also transform the jsx code
   jshintcli.__set__('lint', function myLint(code, results, config, data, file) {
+    //Remove the "additionalSuffixes" property to prevent
+    //the "Bad option: 'additionalSuffixes'" error
+    delete config.additionalSuffixes;
     var hasSuffix = endsWithOneOf(file, defaultSuffixes);
 
     if (hasSuffix) {
