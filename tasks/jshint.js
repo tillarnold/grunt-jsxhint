@@ -19,8 +19,8 @@ function endsWith(string, suffix) {
 }
 
 function endsWithOneOf(string, suffixes) {
-  for(var i = 0; i < suffixes.length; i++) {
-    if(endsWith(string,suffixes[i])) {
+  for (var i = 0; i < suffixes.length; i++) {
+    if (endsWith(string, suffixes[i])) {
       return true;
     }
   }
@@ -28,28 +28,7 @@ function endsWithOneOf(string, suffixes) {
   return false;
 }
 
-var defaultSuffixes = ['.jsx','.react.js'];
-
-//override the lint function to also transform the jsx code
-jshintcli.__set__('lint', function myLint(code, results, config, data, file) {
-  var hasSuffix = endsWithOneOf(file,defaultSuffixes);
-
-  if (hasSuffix) {
-    var compiled;
-
-    try {
-      compiled = react.transform(code);
-    } catch (err) {
-      throw new Error('grunt-jsxhint: Error while running JSXTransformer on ' + file + '\n' + err.message);
-    }
-
-    origLint(compiled, results, config, data, file);
-  } else {
-    origLint(code, results, config, data, file);
-  }
-});
-
-//override the jshint cli in the grunt-contrib-jshint lib folder 
+//override the jshint cli in the grunt-contrib-jshint lib folder
 var libJsHint = proxyquire('grunt-contrib-jshint/tasks/lib/jshint', {
   'jshint/src/cli': jshintcli
 });
@@ -61,4 +40,29 @@ var gruntContribJshint = proxyquire('grunt-contrib-jshint/tasks/jshint', {
 });
 
 //return the modified grunt-contrib-jshint version
-module.exports = gruntContribJshint;
+module.exports = function (grunt) {
+  var additionalSuffixes = grunt.config(['jshint', 'options', 'additionalSuffixes']) || [];
+
+  var defaultSuffixes = ['.jsx', '.react.js'].concat(additionalSuffixes);
+
+  //override the lint function to also transform the jsx code
+  jshintcli.__set__('lint', function myLint(code, results, config, data, file) {
+    var hasSuffix = endsWithOneOf(file, defaultSuffixes);
+
+    if (hasSuffix) {
+      var compiled;
+
+      try {
+        compiled = react.transform(code);
+      } catch (err) {
+        throw new Error('grunt-jsxhint: Error while running JSXTransformer on ' + file + '\n' + err.message);
+      }
+
+      origLint(compiled, results, config, data, file);
+    } else {
+      origLint(code, results, config, data, file);
+    }
+  });
+
+  return gruntContribJshint(grunt);
+};

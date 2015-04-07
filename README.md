@@ -40,8 +40,23 @@ jshint: {
 }
 ```
 
-Your jsx files need to have a `.jsx` or `.react.js` file extension.
- 
+## Parsed filed extensions
+By default, your jsx files need to have a `.jsx` or `.react.js` file extension. In order to parse other files, add the following into your jshint options object:
+
+```js
+jshint: {
+    options: {
+        jshintrc: '.jshintrc',
+        ignores: [],
+        additionalSuffixes: ['.js']
+    },
+}
+```
+
+These suffixes are concatenated onto .jsx and .react.js.
+
+## Contributing
+
 If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the README) feel free to submit a pull request or file an issue.
 
 
