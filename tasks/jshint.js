@@ -1,14 +1,7 @@
-var rewire = require('rewire');
-var proxyquire = require('proxyquire');
-
-try {
-  var react = require('react-tools');
-} catch (e) {
-  throw new Error('grunt-jsxhint: The module `react-tools` was not found. ' +
-    'To fix this error run `npm install react-tools --save-dev`.', e);
-}
-
 var jshintcli = rewire('jshint/src/cli');
+var proxyquire = require('proxyquire');
+var react = require('react-tools');
+var rewire = require('rewire');
 
 //Get the original lint function
 var origLint = jshintcli.__get__('lint');
