@@ -1,6 +1,6 @@
 #grunt-jsxhint [![Dependency Status](https://david-dm.org/tillarnold/grunt-jsxhint.svg)](https://david-dm.org/tillarnold/grunt-jsxhint)
 
- [![NPM](https://nodei.co/npm/grunt-jsxhint.png?downloads=true&stars=true)](https://nodei.co/npm/grunt-jsxhint/) 
+ [![NPM](https://nodei.co/npm/grunt-jsxhint.png?downloads=true&stars=true)](https://nodei.co/npm/grunt-jsxhint/)
 
 > Like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint) but compatible with [react's](https://github.com/facebook/react) jsx
 
@@ -20,14 +20,14 @@ grunt.loadNpmTasks('grunt-jsxhint');
 ```
 
 ## Jshint task
-This grunt plugin works exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint). In fact it's even using `grunt-contrib-jshint`. The only difference to `grunt-contrib-jshint` is that this plugin runs `require('react-tools').transform` on every file passed in. This will transform the jsx syntax to regular JavaScript. Non jsx-files will be unchanged. Line numbers are preserved by jsx so the line numbers outputted by jshint will be correct.
+This grunt plugin works exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint). In fact it's even using `grunt-contrib-jshint`. The only difference to `grunt-contrib-jshint` is that this plugin runs `require('bable-core').transform(code, {plugins: ["transform-react-jsx"]});` on every file passed in. This will transform the jsx syntax to regular JavaScript. Non jsx-files will be unchanged. Line numbers are preserved by jsx so the line numbers outputted by jshint will be correct.
 
 This is a drop in replacement for `grunt-contrib-jshint`. So you can just replace the `grunt-contrib-jshint` dependency in your `package.json` with `grunt-jsxhint`.
 
-`grunt-jsxhint` needs `react-tools` to work. If you don't have `react-tools` installed run
+`grunt-jsxhint` needs `bable-core` and `babel-plugin-transform-react-jsx` to work. If you don't have either installed run
 
 ```shell
-npm install react-tools --save-dev
+npm install babel-core babel-plugin-transform-react-jsx --save-dev
 ```
 
 
@@ -64,7 +64,7 @@ If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the RE
 * 2015-04-07   v0.6.0   Add `additionalSuffixes` option.
 * 2015-02-06   v0.5.0   Update dependencies and remove /** @jsx React.DOM */
 * 2014-10-29   v0.4.0   Add support for `.react.js` suffix
-* 2014-08-14   v0.3.0   Improve error messages. Use locally installed react-tool. 
+* 2014-08-14   v0.3.0   Improve error messages. Use locally installed react-tool.
 * 2014-08-04   v0.2.0   Add check for /** @jsx React.DOM */. Upgrade react-tools.
 * 2014-07-15   v0.1.0   Stop transforming non jsx files.
 * 2014-07-12   v0.0.3   Use absolute version of grunt-contrib-jshint.

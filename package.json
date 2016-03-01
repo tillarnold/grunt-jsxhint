@@ -25,7 +25,8 @@
     "jshint": "~2.6.0"
   },
   "devDependencies": {
-    "react-tools": "~0.13.0"
+    "babel-core": "^6.6.0",
+    "babel-plugin-transform-react-jsx": "^6.6.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.0"
