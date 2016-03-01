@@ -2,10 +2,16 @@ var rewire = require('rewire');
 var proxyquire = require('proxyquire');
 
 try {
-  var react = require('react-tools');
+  var babelCore = require("babel-core");
 } catch (e) {
-  throw new Error('grunt-jsxhint: The module `react-tools` was not found. ' +
-    'To fix this error run `npm install react-tools --save-dev`.', e);
+  throw new Error('babel-core: The module `babel-core` was not found. ' +
+    'To fix this error run `npm install babel-core --save-dev`.', e);
+}
+try {
+  require("babel-plugin-transform-react-jsx");
+} catch (e) {
+  throw new Error('babel transform-react-jsx: The module `babel-plugin-transform-react-jsx` was not found. ' +
+    'To fix this error run `npm install babel-plugin-transform-react-jsx --save-dev`.', e);
 }
 
 var jshintcli = rewire('jshint/src/cli');
@@ -56,12 +62,14 @@ module.exports = function (grunt) {
       var compiled;
 
       try {
-        compiled = react.transform(code);
+        compiled = babelCore.transform(code, {
+          plugins: ["transform-react-jsx"]
+        });
       } catch (err) {
         throw new Error('grunt-jsxhint: Error while running JSXTransformer on ' + file + '\n' + err.message);
       }
 
-      origLint(compiled, results, config, data, file);
+      origLint(compiled.code, results, config, data, file);
     } else {
       origLint(code, results, config, data, file);
     }
