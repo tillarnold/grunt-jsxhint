@@ -2,14 +2,17 @@ var rewire = require('rewire');
 var proxyquire = require('proxyquire');
 
 try {
-  var babelCore = require("babel-core");
-} catch (e) {
-  throw new Error('babel-core: The module `babel-core` was not found. ' +
-    'To fix this error run `npm install babel-core --save-dev`.', e);
+  var babelCore = require('babel-core');
 }
+catch (e) {
+  throw new Error('babel-core: The module `babel-core` was not found. ' +
+      'To fix this error run `npm install babel-core --save-dev`.', e);
+}
+
 try {
-  require("babel-plugin-transform-react-jsx");
-} catch (e) {
+  require('babel-plugin-transform-react-jsx');
+}
+catch (e) {
   throw new Error('babel transform-react-jsx: The module `babel-plugin-transform-react-jsx` was not found. ' +
     'To fix this error run `npm install babel-plugin-transform-react-jsx --save-dev`.', e);
 }
@@ -46,7 +49,7 @@ var gruntContribJshint = proxyquire('grunt-contrib-jshint/tasks/jshint', {
 });
 
 //return the modified grunt-contrib-jshint version
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   var additionalSuffixes = grunt.config(['jshint', 'options', 'additionalSuffixes']) || [];
 
   var defaultSuffixes = ['.jsx', '.react.js'].concat(additionalSuffixes);
@@ -63,9 +66,10 @@ module.exports = function (grunt) {
 
       try {
         compiled = babelCore.transform(code, {
-          plugins: ["transform-react-jsx"]
+          plugins: ['transform-react-jsx']
         });
-      } catch (err) {
+      }
+      catch (err) {
         throw new Error('grunt-jsxhint: Error while running JSXTransformer on ' + file + '\n' + err.message);
       }
 
