@@ -61,6 +61,7 @@ If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the RE
 
 
 ## Release History
+* 2016-03-22   v0.8.0   Update dependencies.
 * 2016-03-01   v0.7.0   Use babel.
 * 2015-04-07   v0.6.0   Add `additionalSuffixes` option.
 * 2015-02-06   v0.5.0   Update dependencies and remove /** @jsx React.DOM */
