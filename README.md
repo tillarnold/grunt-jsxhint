@@ -62,13 +62,13 @@ If `grunt-jsxhint` is lacking a feature or if you found bug (or a typo in the RE
 
 ## Release History
 * 2016-03-22   v0.8.0   Update dependencies.
-* 2016-03-01   v0.7.0   Use babel.
+* 2016-03-01   v0.7.0   Use `babel`.
 * 2015-04-07   v0.6.0   Add `additionalSuffixes` option.
-* 2015-02-06   v0.5.0   Update dependencies and remove /** @jsx React.DOM */
+* 2015-02-06   v0.5.0   Update dependencies and remove `/** @jsx React.DOM */`
 * 2014-10-29   v0.4.0   Add support for `.react.js` suffix
-* 2014-08-14   v0.3.0   Improve error messages. Use locally installed react-tool.
-* 2014-08-04   v0.2.0   Add check for /** @jsx React.DOM */. Upgrade react-tools.
+* 2014-08-14   v0.3.0   Improve error messages. Use locally installed `react-tool`.
+* 2014-08-04   v0.2.0   Add check for `/** @jsx React.DOM */`. Upgrade `react-tools`.
 * 2014-07-15   v0.1.0   Stop transforming non jsx files.
-* 2014-07-12   v0.0.3   Use absolute version of grunt-contrib-jshint.
+* 2014-07-12   v0.0.3   Use absolute version of `grunt-contrib-jshint`.
 * 2014-06-20   v0.0.2   Add MIT licence. Update README.
 * 2014-06-19   v0.0.1   Initial version.
