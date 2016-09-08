@@ -20,11 +20,11 @@ grunt.loadNpmTasks('grunt-jsxhint');
 ```
 
 ## Jshint task
-This grunt plugin works exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint). In fact it's even using `grunt-contrib-jshint`. The only difference to `grunt-contrib-jshint` is that this plugin runs `require('bable-core').transform(code, {plugins: ["transform-react-jsx"]});` on every file passed in. This will transform the jsx syntax to regular JavaScript. Non jsx-files will be unchanged. Line numbers are preserved by jsx so the line numbers outputted by jshint will be correct.
+This grunt plugin works exactly like [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint). In fact it's even using `grunt-contrib-jshint`. The only difference to `grunt-contrib-jshint` is that this plugin runs `require('babel-core').transform(code, {plugins: ["transform-react-jsx"]});` on every file passed in. This will transform the jsx syntax to regular JavaScript. Non jsx-files will be unchanged. Line numbers are preserved by jsx so the line numbers outputted by jshint will be correct.
 
 This is a drop in replacement for `grunt-contrib-jshint`. So you can just replace the `grunt-contrib-jshint` dependency in your `package.json` with `grunt-jsxhint`.
 
-`grunt-jsxhint` needs `bable-core` and `babel-plugin-transform-react-jsx` to work. If you don't have either installed run
+`grunt-jsxhint` needs `babel-core` and `babel-plugin-transform-react-jsx` to work. If you don't have either installed run
 
 ```shell
 npm install babel-core babel-plugin-transform-react-jsx --save-dev
