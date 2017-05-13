@@ -19,17 +19,15 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
+    "babel-core": "^6.6.0",
+    "babel-plugin-transform-react-jsx": "^6.6.0",
     "proxyquire": "~1.7.4",
     "rewire": "~2.5.1",
     "grunt-contrib-jshint": "1.0.0",
     "jshint": "~2.9.1"
   },
-  "devDependencies": {
-    "babel-core": "^6.6.0",
-    "babel-plugin-transform-react-jsx": "^6.6.0"
-  },
   "peerDependencies": {
-    "grunt": "~0.4.0"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "gruntplugin",
